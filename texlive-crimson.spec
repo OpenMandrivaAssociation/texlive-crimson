@@ -1,6 +1,6 @@
 Name:		texlive-crimson
-Version:	64559
-Release:	2
+Version:	73074
+Release:	1
 Summary:	Crimson fonts with LaTeX support
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/crimson
