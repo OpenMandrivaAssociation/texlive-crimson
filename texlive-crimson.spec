@@ -12,7 +12,8 @@ Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/crimson.r%{tl_re
 Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/crimson.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
 BuildSystem:	texlive
-Provides:	texlive(%{tl_name}) = %{tl_revision}
+Requires:	texlive-tlpkg
+Provides:	texlive(%{tl_name}) = %{version}
 
 %description
 This package provides LaTeX, pdfLaTeX, XeLaTeX, and LuaLaTeX support for
@@ -23,3 +24,10 @@ Tschichold (Sabon), Robert Slimbach (Arno, Minion), and Jonathan Hoefler
 (Hoefler Text). Small caps and old-style numerals are mostly available,
 except old-style numerals are not supported in Bold or Semibold.
 
+
+%install -a
+mkdir -p %{buildroot}%{_texmf_updmap_d}
+cat > %{buildroot}%{_texmf_updmap_d}/%{tl_name} <<'TL_DROPIN_EOF'
+# from crimson:
+Map crimson.map
+TL_DROPIN_EOF
